@@ -27,13 +27,12 @@ body {
   padding: 16px;
   box-sizing: border-box;
   border-right: 2px solid #ccc;
-  vertical-align: top;
   flex-direction: column;
 }
 
 .VideoBlock {
   display: flex;
-  height: 15%;
+  height: 30%;
 }
 
 .DataBlock {
@@ -45,7 +44,6 @@ body {
   min-height: 70vh;
   padding: 16px;
   box-sizing: border-box;
-  vertical-align: top;
 }
 
 .VideoPlayer {

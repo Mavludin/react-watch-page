@@ -1,8 +1,8 @@
 .PlayListCard {
   width: 100%;
-  border: 4px solid #fad744;
   border-radius: 6px;
   cursor: pointer;
+  border: 1px solid #ccc;
 }
 
 .PlayListCard + .PlayListCard {
@@ -20,4 +20,8 @@
   font-weight: 600;
   margin: 0;
   padding: 16px;
+}
+
+.Active {
+  border: 4px solid #fad744;
 }
