@@ -10,7 +10,7 @@ export const VideoMetaData = {
   vimeoId: "190062231"
 };
 
-export const VideoPlayList = [
+export const VideoPlayListData = [
   {
     id: "1",
     title: "Croissants | Flour and Stone",
