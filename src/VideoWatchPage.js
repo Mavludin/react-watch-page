@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 import PlayListCard from "./PlayListCard";
 
+import axios from 'axios';
+
 import Scroll from "react-scroll";
 
 import { VideoMetaData, VideoPlayListData, VideoMetaDataList } from "./VideoData";
 import classes from './VideoWatchPage.module.css';
+import Axios from 'axios';
 
 class VideoWatchPage extends Component {
 
     state = {
         currentVideoCardPos: 0,
-        videoMetaData: VideoMetaData
+        videoMetaData: VideoMetaData,
+        videoPlayListData : VideoPlayListData
     };
-    
-    videoPlayListData = VideoPlayListData;
     
     onVideoCardClick = pos => {
         this.setState({
@@ -24,8 +26,20 @@ class VideoWatchPage extends Component {
         Scroll.animateScroll.scrollToTop();
     };
 
+    componentDidMount() {
+        axios.get(`https://5d76bf96515d1a0014085cf9.mockapi.io/video/${this.props.match.params.videoId}`)
+        .then(response => {
+            console.log(response.data);
+            this.setState({});
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
     render() {
-        const videoPlayListRender = this.videoPlayListData.map((item, pos) => {
+
+        const videoPlayListRender = this.state.videoPlayListData.map((item, pos) => {
             return (
               <PlayListCard
                 key={item.id}
@@ -40,6 +54,7 @@ class VideoWatchPage extends Component {
         });
 
         return (
+
             <div className={classes.MainWrapper}>
                 <div className={classes.PlayerSection}>
                     <div className={classes.VideoBlock}>

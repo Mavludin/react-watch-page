@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import {Route, BrowserRouter} from 'react-router-dom';
+import {Route, BrowserRouter, Switch} from 'react-router-dom';
 
 import VideoWatchPage from './VideoWatchPage';
 import HomePage from './HomePage';
 
 import logo from "./logo.svg";
 import classes from "./App.module.css";
-
 
 class App extends Component {
 
@@ -15,7 +14,10 @@ class App extends Component {
     return (
         <BrowserRouter>
           <div className={classes.App}>
-            <Route path="/" component={HomePage} />
+            <Switch>
+              <Route path='/watch/:videoId' component={VideoWatchPage} />
+              <Route path="/" component={HomePage} />
+            </Switch>
           </div>        
         </BrowserRouter>
     );
